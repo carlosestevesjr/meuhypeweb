@@ -170,6 +170,7 @@ export default function Home() {
             <Header></Header>
             <Layout>
                 <main>
+                   
                     <TagsRecentsWrapper id="lita-tags-recents">
                         <div className='container'>
                             <h2 className='title-page text-center'>Últimas Notícias</h2>
@@ -208,6 +209,7 @@ export default function Home() {
                             </div>
                         </div>
                     </TagsRecentsWrapper>
+                   
                     <div className='container'>
                         <div className='row'>
                             <div className='col-sm-12 col-md-9 col-lg-9 col-xl-9 mb-3'>

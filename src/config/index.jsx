@@ -18,18 +18,12 @@
 
 export default () => {
 
-    if(process.env.NEXT_PUBLIC_ENV_LOCAL_HOST_MEUHYPE != "" && process.env.NEXT_PUBLIC_ENV_LOCAL_API_MEUHYPE != ""){
+    if(process.env.local_host_meuhype != "" && process.env.local_api_meuhype != ""){
         return {
-            LOCAL_HOST_MEUHYPE : process.env.NEXT_PUBLIC_ENV_LOCAL_HOST_MEUHYPE,
-            LOCAL_API_MEUHYPE: process.env.NEXT_PUBLIC_ENV_LOCAL_API_MEUHYPE,
-            LOCAL_HOST_MEUHYPE : process.env.NEXT_PUBLIC_ENV_PRODUCTION_HOST_MEUHYPE,
-            LOCAL_API_MEUHYPE: process.env.NEXT_PUBLIC_ENV_PRODUCTION_API_MEUHYPE,
+            LOCAL_HOST_MEUHYPE : process.env.local_host_meuhype,
+            LOCAL_API_MEUHYPE: process.env.local_api_meuhype
         }
-    }else if(process.env.NEXT_PUBLIC_ENV_PRODUCTION_HOST != "" && process.env.NEXT_PUBLIC_ENV_PRODUCTION_API_MEUHYPE != ""){
-        return {
-            LOCAL_HOST_MEUHYPE : process.env.NEXT_PUBLIC_ENV_PRODUCTION_HOST_MEUHYPE,
-            LOCAL_API_MEUHYPE: process.env.NEXT_PUBLIC_ENV_PRODUCTION_API_MEUHYPE,
-        }
+    
     }else{
         return {
             LOCAL_HOST_MEUHYPE :"",
