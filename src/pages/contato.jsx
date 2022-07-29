@@ -17,7 +17,7 @@ export default function Contato() {
             <Layout>
                 <main>
                     <section>
-                        
+                        CONTATO
                     </section>
                 </main>
                 <Footer></Footer>
