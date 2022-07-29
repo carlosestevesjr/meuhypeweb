@@ -21,6 +21,7 @@ export default function Document() {
                 />
 
                 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Display:wght@500&display=swap" rel="stylesheet" />
+                <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests"></meta>
             </Head>
             <body>
                 <Main />
