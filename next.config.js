@@ -6,8 +6,16 @@ const nextConfig = {
         styledComponents: true
     },
     images: {
-        domains: ["www.nocinema.kinghost.net"],
+        domains: ["192.168.56.1",'www.nocinema.kinghost.net'],
         formats: ["image/webp"],
+    },
+    // publicRuntimeConfig: {
+    //     local_host_meuhype : process.env.NEXT_PUBLIC_ENV_PRODUCTION_HOST_MEUHYPE,
+    //     local_api_meuhype: process.env.NEXT_PUBLIC_ENV_PRODUCTION_API_MEUHYPE,
+    // },
+    env: {
+        local_host_meuhype: process.env.NEXT_PUBLIC_ENV_LOCAL_HOST,
+        local_api_meuhype: process.env.NEXT_PUBLIC_ENV_LOCAL_API_MEUHYPE,
     },
     
 }
