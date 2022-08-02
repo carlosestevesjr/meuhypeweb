@@ -63,29 +63,32 @@ export default function Tag() {
 
     // In your components (instead of useRouter)
   
-    console.log('router.query',router.query)
+    // console.log('router.query',router.query)
 
-    // useEffect(() => {
-    //     //Monta Parametro para requisição
-    //     if (!isReady) {
-    //         //console.log('Router not ready')
-    //         return;
-    //     }
-
-    //     if(s && s != ""){
-    //         buscaPageSearch(pagina, s)
-    //     }else{
-    //         buscaPage(pagina)
-    //     }
-    //     //console.log(`pagina: ${pagina}`)
-
-    // }, [isReady,s]); // eslint-disable-line react-hooks/exhaustive-deps
+    const {
+        isReady,
+        query: {
+            pagina,
+            s
+        }
+    } = router;
 
     useEffect(() => {
-        // Router.push(`/?pagina=1`)
-        // router.prefetch('/')
-        buscaNews(1)
-    }, []);
+        //Monta Parametro para requisição
+        if (!isReady) {
+            return;
+        }
+        if(pagina){
+            buscaPage(pagina)
+        }else{
+            buscaPage(1)
+        }
+      
+    }, [isReady]); // eslint-disable-line react-hooks/exhaustive-deps
+
+    useEffect(() => {
+        // buscaPage(pagina)
+    },[]);
 
     return (
         <>

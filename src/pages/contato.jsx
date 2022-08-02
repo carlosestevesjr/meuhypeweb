@@ -6,19 +6,21 @@ import Config from '../config/index';
 import Layout from '../components/Layout/Layout';
 import Header from '../components/Layout/Header';
 import Footer from '../components/Layout/Footer';
+import { PageTitleWrapper } from '../styles/globals';
 
 export default function Contato() {
 
     // In your components (instead of useRouter)
-   
     return (
         <>
             <Header></Header>
             <Layout>
                 <main>
-                    <section  className='container'>
-                        CONTATO
-                    </section>
+                    <div className='container'>
+                        <PageTitleWrapper>
+                            <h2 className='title-page text-center'>CONTATO {}</h2>
+                        </PageTitleWrapper>
+                    </div>
                 </main>
                 <Footer></Footer>
             </Layout>

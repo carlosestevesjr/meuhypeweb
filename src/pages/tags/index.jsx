@@ -8,6 +8,7 @@ import Config from '../../config/index';
 import Layout from '../../components/Layout/Layout';
 import Header from '../../components/Layout/Header';
 import Footer from '../../components/Layout/Footer';
+import { PageTitleWrapper } from '../../styles/globals';
 
 export default function Tags() {
 
@@ -17,14 +18,11 @@ export default function Tags() {
             <Header></Header>
             <Layout>
                 <main>
-                    <section className='container'>
-                        <div className='row'>
-                            TAGS
-                            <Link href="/tags/5-testando" >
-                                <a className="nav-link active" aria-current="page" href="#">Tag</a>
-                            </Link>
-                        </div>
-                    </section>
+                    <div className='container'>
+                        <PageTitleWrapper>
+                            <h2 className='title-page text-center'>TAGS</h2>
+                        </PageTitleWrapper>
+                    </div>
                 </main>
                 <Footer></Footer>
             </Layout>

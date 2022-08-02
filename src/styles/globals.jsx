@@ -271,7 +271,7 @@ export const PaginateWrapper = styled.div`
     }
 `;
 
-export const BtnTag = styled.a`
+export const BtnTag = styled.div`
     /* background-color: ${secundary50}; */
     border-bottom: 2px solid ${primary500};
     color: ${primary500};
@@ -279,7 +279,7 @@ export const BtnTag = styled.a`
     font-size: ${props => props.size || fontSize16};
 `;
 
-export const BtnGo = styled.a`
+export const BtnGo = styled.div`
     color: ${light};
     position: relative;
     transition: transform 250ms;
@@ -309,6 +309,12 @@ export const NewsWrapper = styled.div`
 export const TagsRecentsWrapper = styled.div`
     padding: 10px;
     padding-bottom: 60px;
+    .subtitle-page{
+        margin-bottom:10px;
+        font-size: ${fontSize26};
+        padding:1.25em;
+        color: ${primary500};
+    }  
     #list-tags{
         width: 75%;
     }  

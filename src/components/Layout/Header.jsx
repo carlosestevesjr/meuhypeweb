@@ -51,14 +51,16 @@ export default function Header() {
                                 <div className="site-branding">
                                     <div itemProp="logo">
                                         <div>
-                                            <a href="/" onClick={() => reloadHome()} >
-                                                <Image
-                                                    src={logo}
-                                                    alt="Meu Hype"
-                                                    width="150px"
-                                                    height="21px"
-                                                />
-                                            </a>
+                                            <Link href="/" >
+                                                <a >
+                                                    <Image
+                                                        src={logo}
+                                                        alt="Meu Hype"
+                                                        width="150px"
+                                                        height="21px"
+                                                    />
+                                                </a>
+                                            </Link>
                                         </div>
                                     </div>
                                 </div>

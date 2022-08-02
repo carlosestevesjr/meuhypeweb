@@ -95,7 +95,7 @@ export default function Home() {
     async function buscaNewsSearch(page = 1, search = "") {
         setIsLoadingNews(true)
         setNews([])
-        await fetch(Config().LOCAL_API_MEUHYPE + 'v1/lista-news-search?page=' + page + '&qtd=40'+ '&search='+search)
+        await fetch(Config().LOCAL_API_MEUHYPE + 'v1/lista-news-search?page=' + page + '&qtd=24'+ '&search='+search)
             .then((res) => res.json())
             .then((data) => {
                 // console.log('data' , data.content)
@@ -202,7 +202,7 @@ export default function Home() {
                         </PageTitleWrapper>
                         <div className='container'>
                             <div className='d-flex '>
-                                <h2 className='title-page text-start'>Tags <br />Recentes</h2>
+                                <h2 className='subtitle-page text-start'>Tags <br />Recentes</h2>
                                 {
                                   
                                     <div id="list-tags">

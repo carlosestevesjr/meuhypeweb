@@ -16,10 +16,10 @@ export default function CardNews({item}){
 
     const handleImageLoad = (e, id_loader) => {
         // console.log("load", e);
-        const element = document.getElementById('load-'+id_loader);
-        if(element){
-            element.remove(); 
-        }
+        // const element = document.getElementById('load-'+id_loader);
+        // if(element){
+        //     element.remove(); 
+        // }
     };
     // const MyLoader = () => <Facebook  />
 
@@ -54,7 +54,7 @@ export default function CardNews({item}){
                     {
                         item.tags && item.tags.map(function(tag, i){
                             return  <BtnTag key={i} size={fontSize12} title={'Ver notícia de '+ tag.tag_name} className='mh-shadow2 p-2 m-1 rounded-1 '>
-                                        <Link href={`/tags/${tag.tag_id}`}  >
+                                        <Link href={"/tags/"+tag.tag_id}  >
                                             <a>
                                                 #{tag.tag_name}
                                             </a>
