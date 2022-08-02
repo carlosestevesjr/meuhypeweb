@@ -97,7 +97,7 @@ export default function Tag() {
                 <main>
                 <div className='container'>
                     <PageTitleWrapper>
-                        <h2 className='title-page text-center'>Tag {}</h2>
+                        <h2 className='title-page text-center'>Tag </h2>
                     </PageTitleWrapper>
                 </div>
                 <div className='container'>
