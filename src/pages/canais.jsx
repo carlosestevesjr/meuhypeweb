@@ -8,9 +8,10 @@ import Header from '../components/Layout/Header';
 import Footer from '../components/Layout/Footer';
 import { PageTitleWrapper } from '../styles/globals';
 
-export default function Contato() {
+export default function Canais() {
 
     // In your components (instead of useRouter)
+   
     return (
         <>
             <Header></Header>
@@ -18,7 +19,7 @@ export default function Contato() {
                 <main>
                     <div className='container'>
                         <PageTitleWrapper>
-                            <h2 className='title-page text-center'>CONTATO {}</h2>
+                            <h2 className='title-page text-center'>CANAIS</h2>
                         </PageTitleWrapper>
                     </div>
                 </main>

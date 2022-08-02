@@ -23,5 +23,6 @@
     "eslint": "8.18.0",
     "eslint-config-next": "12.1.6",
     "node-sass": "^7.0.1"
-  }
+  },
+  "start:local": "PORT=4000 node ./server-local.js"
 }

@@ -151,7 +151,7 @@ export const GlobalStyle = createGlobalStyle`
 `;
 
 export const HeaderWrapper = styled.header`
-    padding: 10px;
+    /* padding: 10px; */
     z-index: 999999999 ;
     width: 100%;
     background-color: ${primary500};
@@ -159,7 +159,6 @@ export const HeaderWrapper = styled.header`
     color: ${light};
 
     #search{
-        
         .search-input{
             font-size: ${fontSize13};
             color: ${primary500};
@@ -191,7 +190,22 @@ export const HeaderWrapper = styled.header`
             }
         }
     }
-    
+`;
+
+export const PageTitleWrapper = styled.div`
+   
+    .title-page-initial{
+        /* margin-bottom:10px ; */
+        font-size: ${fontSize26};
+        padding:1.25em;
+        color: ${primary500};
+    }  
+    .title-page{
+        margin-bottom:10px;
+        font-size: ${fontSize26};
+        padding:1.25em;
+        color: ${primary500};
+    }  
 `;
 
 export const SidebarWrapper = styled.div`
@@ -200,7 +214,6 @@ export const SidebarWrapper = styled.div`
     background:${light};
     padding: 15px;
     border-radius: 3px;
-    margin-top: -78px;
 `;
 
 export const FooterWrapper = styled.footer`
@@ -258,7 +271,7 @@ export const PaginateWrapper = styled.div`
     }
 `;
 
-export const BtnTag = styled.a`
+export const BtnTag = styled.div`
     /* background-color: ${secundary50}; */
     border-bottom: 2px solid ${primary500};
     color: ${primary500};
@@ -266,7 +279,7 @@ export const BtnTag = styled.a`
     font-size: ${props => props.size || fontSize16};
 `;
 
-export const BtnGo = styled.a`
+export const BtnGo = styled.div`
     color: ${light};
     position: relative;
     transition: transform 250ms;
@@ -289,14 +302,15 @@ export const BtnGo = styled.a`
 `;
 
 export const NewsWrapper = styled.div`
-    margin-top: -78px;
+    /* margin-top: -78px; */
     
 `;
 
 export const TagsRecentsWrapper = styled.div`
     padding: 10px;
-    padding-bottom: 135px;
-    .title-page{
+    padding-bottom: 60px;
+    .subtitle-page{
+        margin-bottom:10px;
         font-size: ${fontSize26};
         padding:1.25em;
         color: ${primary500};

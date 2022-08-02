@@ -5,7 +5,6 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { useState, useEffect } from 'react';
 
-
 import logo from '../../assets/images/commons/meu_hype.png';
 import { light } from '../../theme';
 
@@ -38,6 +37,9 @@ export default function Header() {
 
     }, [isReady,s]); // eslint-disable-line react-hooks/exhaustive-deps
 
+    function reloadHome(){
+        Router.reload('/')
+    }
 
     return (
         <HeaderWrapper className='header mh-shadow position-fixed zindex-master mb-4'>
@@ -48,16 +50,18 @@ export default function Header() {
                             <div className="container ">
                                 <div className="site-branding">
                                     <div itemProp="logo">
-                                        <Link href="/">
-                                            <a >
-                                                <Image
-                                                    src={logo}
-                                                    alt="Meu Hype"
-                                                    width="150px"
-                                                    height="21px"
-                                                />
-                                            </a>
-                                        </Link>
+                                        <div>
+                                            <Link href="/" >
+                                                <a >
+                                                    <Image
+                                                        src={logo}
+                                                        alt="Meu Hype"
+                                                        width="150px"
+                                                        height="21px"
+                                                    />
+                                                </a>
+                                            </Link>
+                                        </div>
                                     </div>
                                 </div>
                                 <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -66,27 +70,27 @@ export default function Header() {
                                 <div className="collapse navbar-collapse mx-5" id="navbarSupportedContent">
                                     <ul className="navbar-nav">
                                         <li className="nav-item">
-                                            <Link href="/">
+                                            <Link href="/canais">
                                                 <a className="nav-link active" aria-current="page" href="#">Canais</a>
                                             </Link>
                                         </li>
                                         <li className="nav-item">
-                                            <Link href="/">
+                                            <Link href="/tags">
                                                 <a className="nav-link" aria-current="page" href="#">Tags</a>
                                             </Link>
                                         </li>
                                         <li className="nav-item">
-                                            <Link href="/">
+                                            <Link href="/sobre">
                                                 <a className="nav-link" aria-current="page" href="#">Sobre</a>
                                             </Link>
                                         </li>
                                         <li className="nav-item">
-                                            <Link href="/">
+                                            <Link href="/doacao">
                                                 <a className="nav-link" aria-current="page" href="#">Doação</a>
                                             </Link>
                                         </li>
                                         <li className="nav-item">
-                                            <Link href="/">
+                                            <Link href="/contato">
                                                 <a className="nav-link" aria-current="page" href="#">Contato</a>
                                             </Link>
                                         </li>

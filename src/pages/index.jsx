@@ -10,11 +10,13 @@ import CardTag from '../components/CardTag/CardTag';
 import Paginate from '../components/Layout/Paginate';
 import Loader from '../components/Utilities/Loader';
 import Footer from '../components/Layout/Footer';
-import { NewsWrapper, TagsRecentsWrapper } from '../styles/globals';
+import { NewsWrapper, PageTitleWrapper, TagsRecentsWrapper } from '../styles/globals';
 
 import Slider from "react-slick";
 import { light, primary200, primary300, primary500 } from '../theme';
 import Sidebar from '../components/Layout/Sidebar';
+import Messages from '../components/Layout/Messages';
+import { messageDefault } from '../utils';
 
 export default function Home() {
 
@@ -22,7 +24,12 @@ export default function Home() {
     const [tagsRecents, setTagsRecents] = useState([])
     const [dadosPaginate, setDadosPaginate] = useState(null)
     const [page, setPage] = useState(false)
- 
+
+    const [messages, setMessages] = useState({
+        'news':'',
+        'tagsRecents':''
+    })
+    
     const [isIsLoadingNews, setIsLoadingNews] = useState(false)
     const [isIsLoadingTags, setIsLoadingTags] = useState(false)
     
@@ -88,7 +95,7 @@ export default function Home() {
     async function buscaNewsSearch(page = 1, search = "") {
         setIsLoadingNews(true)
         setNews([])
-        await fetch(Config().LOCAL_API_MEUHYPE + 'v1/lista-news-search?page=' + page + '&qtd=40'+ '&search='+search)
+        await fetch(Config().LOCAL_API_MEUHYPE + 'v1/lista-news-search?page=' + page + '&qtd=24'+ '&search='+search)
             .then((res) => res.json())
             .then((data) => {
                 // console.log('data' , data.content)
@@ -97,7 +104,12 @@ export default function Home() {
                 setPage(page)
                 setIsLoadingNews(false)
             }).catch(error => {
-                throw(error);
+                setMessages(prevState => ({
+                    ...prevState,
+                    news: messageDefault
+                }));
+               
+                // throw(error);
             })
     }
 
@@ -113,7 +125,13 @@ export default function Home() {
                 setPage(page)
                 setIsLoadingNews(false)
             }).catch(error => {
-                throw(error);
+                setIsLoadingNews(false)
+                setIsLoadingTags(false)
+                setMessages(prevState => ({
+                    ...prevState,
+                    news: messageDefault
+                }));
+                // throw(error);
             })
     }
 
@@ -128,7 +146,13 @@ export default function Home() {
                 setIsLoadingNews(false)
                 setIsLoadingTags(false)
             }).catch(error => {
-                throw(error);
+                setIsLoadingTags(false)
+                setIsLoadingNews(false)
+                setMessages(prevState => ({
+                    ...prevState,
+                    tagsRecents: messageDefault
+                }));
+                // throw(error);
             })
     }
 
@@ -170,14 +194,15 @@ export default function Home() {
             <Header></Header>
             <Layout>
                 <main>
-                   
                     <TagsRecentsWrapper id="lita-tags-recents">
-                        <div className='container'>
-                            <h2 className='title-page text-center'>Últimas Notícias</h2>
-                        </div>
+                        <PageTitleWrapper>
+                            <div className='container'>
+                                <h2 className='title-page-initial text-center'>Últimas Notícias</h2>
+                            </div>
+                        </PageTitleWrapper>
                         <div className='container'>
                             <div className='d-flex '>
-                                <h2 className='title-page text-start'>Tags <br />Recentes</h2>
+                                <h2 className='subtitle-page text-start'>Tags <br />Recentes</h2>
                                 {
                                   
                                     <div id="list-tags">
@@ -198,7 +223,7 @@ export default function Home() {
                                                                     </div>
                                                                 ))
                                                                 :
-                                                                <p>Não há tags</p>
+                                                                <Messages message={messages.tagsRecents} />
                                                         }
                                                     </Slider>
 
@@ -221,16 +246,15 @@ export default function Home() {
                                                 :
                                                 <div className='row'>
                                                     {
-                                                        (news.length > 0) ?
+                                                        ( news.length > 0) ?
                                                             news.map((item, index) => (
                                                                 <div key={index} className='col-sm-12 col-md-12 col-lg-6 col-xl-4 mb-3'>
                                                                     {<CardNews item={item} ></CardNews>}
                                                                 </div>
                                                             ))
                                                             :
-                                                            <div className='mh-shadow bg-message py-2'>
-                                                                <p>Não há notícias</p>
-                                                            </div>
+                                                            <Messages message={messages.news} />
+
                                                     }
                                                 </div>
                                         }

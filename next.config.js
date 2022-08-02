@@ -6,7 +6,7 @@ const nextConfig = {
         styledComponents: true
     },
     images: {
-        domains: ["192.168.56.1",'www.nocinema.kinghost.net'],
+        domains: ["192.168.15.7","159.89.50.50",'meuhype.com.br','localhost'],
         formats: ["image/webp"],
     },
     // publicRuntimeConfig: {
@@ -17,6 +17,14 @@ const nextConfig = {
         local_host_meuhype: process.env.NEXT_PUBLIC_ENV_LOCAL_HOST,
         local_api_meuhype: process.env.NEXT_PUBLIC_ENV_LOCAL_API_MEUHYPE,
     },
+    async rewrites() {
+        return [
+          {
+            source: '/api/:slug*',
+            destination: 'http://localhost:3000'
+          },
+        ]
+    }
     
 }
 

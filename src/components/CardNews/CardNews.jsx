@@ -9,14 +9,17 @@ import { CardNewsWrapper } from './Style'
 import {BtnTag, BtnGo } from './../../styles/globals'
 import { corDestaque, fontSize12} from '../../theme';
 import Loader from '../Utilities/Loader';
+import Link from 'next/link';
 
 export default function CardNews({item}){
     const [src, setSrc] = useState("");
 
     const handleImageLoad = (e, id_loader) => {
         // console.log("load", e);
-        const element = document.getElementById('load-'+id_loader);
-        element.remove(); 
+        // const element = document.getElementById('load-'+id_loader);
+        // if(element){
+        //     element.remove(); 
+        // }
     };
     // const MyLoader = () => <Facebook  />
 
@@ -50,8 +53,12 @@ export default function CardNews({item}){
                 <div className='tags float-start d-flex flex-wrap'>
                     {
                         item.tags && item.tags.map(function(tag, i){
-                            return  <BtnTag key={i} size={fontSize12} className='mh-shadow2 p-2 m-1 rounded-1 '>
-                                        #{tag.tag_name}
+                            return  <BtnTag key={i} size={fontSize12} title={'Ver notícia de '+ tag.tag_name} className='mh-shadow2 p-2 m-1 rounded-1 '>
+                                        <Link href={"/tags/"+tag.tag_id}  >
+                                            <a>
+                                                #{tag.tag_name}
+                                            </a>
+                                        </Link>
                                     </BtnTag>
                         })
                     }
