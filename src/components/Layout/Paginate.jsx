@@ -1,23 +1,16 @@
 import Link from 'next/link'
-import Router from 'next/router'
+import Router, { useRouter } from 'next/router'
 import { PaginateWrapper } from '../../styles/globals';
 import { primary500 } from '../../theme';
 
 export default function Paginate({ dados, pageCurrent, search, buscaPage}) {
+    const router = useRouter(); 
 
     function active(id , pageActive){
         if(id == (pageActive -1)){
             return 'page-link active'
         }else{
             return 'page-link'
-        }
-    }
-
-    function busca(){
-        if(search != undefined){
-            return '&s='+search
-        }else{
-            return ""
         }
     }
 
@@ -78,7 +71,15 @@ export default function Paginate({ dados, pageCurrent, search, buscaPage}) {
                     {
                         (pageCurrent > 1 ) && 
                         <li className="page-item">
-                            <button onClick={() => (buscaPage(1), Router.push(`/?pagina=${1}${busca()}`))} >
+                            <button 
+                            onClick={() => (
+                                    buscaPage(1),
+                                    Router.push({
+                                        pathname: router.pathname,
+                                        query: {...router.query, pagina: 1, s: search },
+                                    })
+                                )} 
+                            >
                                 <div className="page-link mh-shadow" >
                                     <svg xmlns="http://www.w3.org/2000/svg" width={18} height={18} fill={primary500} className="bi bi-arrow-right-circle" viewBox="0 0 18 18">
                                         <path fillRule="evenodd" d="M15.41,16.58L10.83,12L15.41,7.41L14,6L8,12L14,18L15.41,16.58Z"/>
@@ -94,7 +95,15 @@ export default function Paginate({ dados, pageCurrent, search, buscaPage}) {
                     {
                         (pageCurrent > 1) && 
                         <li className="page-item">
-                            <button onClick={() => (buscaPage(pageCurrent - 1), Router.push(`/?pagina=${pageCurrent - 1}${busca()}`))} >
+                            <button 
+                                onClick={() => (
+                                    buscaPage(pageCurrent - 1),
+                                    Router.push({
+                                        pathname: router.pathname,
+                                        query: {...router.query, pagina: pageCurrent - 1, s: search },
+                                    })
+                                )} 
+                            >
                                 <div className="page-link mh-shadow" >
                                     <svg xmlns="http://www.w3.org/2000/svg" width={18} height={18} fill={primary500} className="bi bi-arrow-right-circle" viewBox="0 0 18 18">
                                         <path fillRule="evenodd" d="M15.41,16.58L10.83,12L15.41,7.41L14,6L8,12L14,18L15.41,16.58Z"/>
@@ -108,7 +117,15 @@ export default function Paginate({ dados, pageCurrent, search, buscaPage}) {
                     {
                         (pageCurrent <= dados.last_page && dados.last_page != 1) && 
                         <li className="page-item">
-                            <button onClick={() => (buscaPage(pageCurrent + 1), Router.push(`/?pagina=${pageCurrent + 1}${busca()}`))}>
+                            <button 
+                                onClick={() => (
+                                    buscaPage(pageCurrent + 1),
+                                    Router.push({
+                                        pathname: router.pathname,
+                                        query: {...router.query, pagina: pageCurrent + 1, s: search },
+                                    })
+                                )}
+                            >
                                 <div className="page-link mh-shadow" >
                                     Próximo
                                     <svg xmlns="http://www.w3.org/2000/svg" width={18} height={18} fill={primary500} className="bi bi-arrow-right-circle" viewBox="0 0 18 18">
@@ -122,7 +139,16 @@ export default function Paginate({ dados, pageCurrent, search, buscaPage}) {
                     {
                     (pageCurrent <= dados.last_page && dados.last_page != 1) && 
                         <li className="page-item">
-                            <button onClick={() => (buscaPage(dados.last_page), Router.push(`/?pagina=${dados.last_page}${busca()}`))}>
+                            <button
+                                onClick={() => (
+                                    buscaPage(dados.last_page),
+                                    Router.push({
+                                        pathname: router.pathname,
+                                        query: {...router.query, pagina: dados.last_page, s: search },
+                                    })
+                                    
+                                )}
+                            >
                                 <div className="page-link mh-shadow" >
                                     Última
                                     <svg xmlns="http://www.w3.org/2000/svg" width={18} height={18} fill={primary500} className="bi bi-arrow-right-circle" viewBox="0 0 18 18">

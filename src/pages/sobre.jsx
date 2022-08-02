@@ -7,7 +7,7 @@ import Layout from '../components/Layout/Layout';
 import Header from '../components/Layout/Header';
 import Footer from '../components/Layout/Footer';
 
-export default function Contato() {
+export default function Sobre() {
 
     // In your components (instead of useRouter)
    
@@ -17,7 +17,7 @@ export default function Contato() {
             <Layout>
                 <main>
                     <section  className='container'>
-                        CONTATO
+                        SOBRE
                     </section>
                 </main>
                 <Footer></Footer>

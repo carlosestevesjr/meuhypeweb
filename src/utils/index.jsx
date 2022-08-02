@@ -1,5 +1,7 @@
 import { stubFalse } from "lodash";
 
+export const messageDefault = "Não foi possivel acessar os dados, tente novamente mais tarde."
+
 export function dataHjAno(){
     var data = new Date();
     return data.getFullYear();       

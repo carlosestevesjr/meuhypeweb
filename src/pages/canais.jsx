@@ -7,7 +7,7 @@ import Layout from '../components/Layout/Layout';
 import Header from '../components/Layout/Header';
 import Footer from '../components/Layout/Footer';
 
-export default function Contato() {
+export default function Canais() {
 
     // In your components (instead of useRouter)
    
@@ -16,8 +16,8 @@ export default function Contato() {
             <Header></Header>
             <Layout>
                 <main>
-                    <section  className='container'>
-                        CONTATO
+                    <section className='container'>
+                        CANAIS
                     </section>
                 </main>
                 <Footer></Footer>

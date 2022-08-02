@@ -10,7 +10,7 @@ export default function Footer() {
             <div className='container'>
                 <div className='row'>
                     <div  className='col-sm-12 col-md-4 col-lg-4 col-xl-2 '>
-                        <h3 >SOBRE</h3>
+                        <h3>SOBRE</h3>
                         <ul className="nav flex-column">
                             <li className='my-1'>
                                 <Link href="/quem-somos">

@@ -151,7 +151,7 @@ export const GlobalStyle = createGlobalStyle`
 `;
 
 export const HeaderWrapper = styled.header`
-    padding: 10px;
+    /* padding: 10px; */
     z-index: 999999999 ;
     width: 100%;
     background-color: ${primary500};
@@ -159,7 +159,6 @@ export const HeaderWrapper = styled.header`
     color: ${light};
 
     #search{
-        
         .search-input{
             font-size: ${fontSize13};
             color: ${primary500};
@@ -191,7 +190,22 @@ export const HeaderWrapper = styled.header`
             }
         }
     }
-    
+`;
+
+export const PageTitleWrapper = styled.div`
+   
+    .title-page-initial{
+        /* margin-bottom:10px ; */
+        font-size: ${fontSize26};
+        padding:1.25em;
+        color: ${primary500};
+    }  
+    .title-page{
+        margin-bottom:10px;
+        font-size: ${fontSize26};
+        padding:1.25em;
+        color: ${primary500};
+    }  
 `;
 
 export const SidebarWrapper = styled.div`
@@ -200,7 +214,6 @@ export const SidebarWrapper = styled.div`
     background:${light};
     padding: 15px;
     border-radius: 3px;
-    margin-top: -78px;
 `;
 
 export const FooterWrapper = styled.footer`
@@ -289,18 +302,13 @@ export const BtnGo = styled.a`
 `;
 
 export const NewsWrapper = styled.div`
-    margin-top: -78px;
+    /* margin-top: -78px; */
     
 `;
 
 export const TagsRecentsWrapper = styled.div`
     padding: 10px;
-    padding-bottom: 135px;
-    .title-page{
-        font-size: ${fontSize26};
-        padding:1.25em;
-        color: ${primary500};
-    }  
+    padding-bottom: 60px;
     #list-tags{
         width: 75%;
     }  
