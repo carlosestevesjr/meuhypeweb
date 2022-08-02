@@ -6,7 +6,7 @@ const nextConfig = {
         styledComponents: true
     },
     images: {
-        domains: ["192.168.15.7","159.89.50.50",'www.nocinema.kinghost.net','localhost'],
+        domains: ["192.168.15.7","159.89.50.50",'meuhype.com.br','localhost'],
         formats: ["image/webp"],
     },
     // publicRuntimeConfig: {
