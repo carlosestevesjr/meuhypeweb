@@ -16,7 +16,7 @@ export default function CardTag({item}){
     }
     return (
         <CardTagWrapper className='mh-shadow m-2'>
-            <Link href={`/tags/${item.tag_id}`} >
+            <Link href={`/tags/${item.tag_slug}`} >
                 <a>
                     <Image
                         loader={myLoader}

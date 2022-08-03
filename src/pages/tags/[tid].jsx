@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 
 import Link from 'next/link'
-import { useRouter } from 'next/router'
+import Router, { useRouter } from 'next/router'
 
 //Config
 import Config from '../../config/index';
@@ -23,7 +23,7 @@ export default function Tag() {
     const [page, setPage] = useState(false)
 
     const router = useRouter()
-    const { pid,slug } = router.query
+    const { tid, slug } = router.query
 
     const buscaPage = (page = 1) => {
         // console.log('buscaPage',page)
@@ -31,11 +31,11 @@ export default function Tag() {
     }
 
     async function buscaNews(page = 1) {
+        // console.log('chama', page)
         setIsLoadingNews(true)
         setNews([])
-        let headers = new Headers();
        
-        await fetch(Config().LOCAL_API_MEUHYPE + 'v1/lista-news-tag/'+pid+'?page=' + page + '&qtd=24' )
+        await fetch(Config().LOCAL_API_MEUHYPE + 'v1/lista-news-tag/'+tid+'?page=' + page + '&qtd=24' )
             .then((res) => res.json())
             .then((data) => {
                 // console.log('data' , data.content)
@@ -83,12 +83,9 @@ export default function Tag() {
         }else{
             buscaPage(1)
         }
+       
       
-    }, [isReady]); // eslint-disable-line react-hooks/exhaustive-deps
-
-    useEffect(() => {
-        // buscaPage(pagina)
-    },[]);
+    }, [isReady, tid ]); // eslint-disable-line react-hooks/exhaustive-deps
 
     return (
         <>

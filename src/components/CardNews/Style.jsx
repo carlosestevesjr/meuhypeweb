@@ -18,7 +18,9 @@ import {
     corDestaque,
     dark,
     primary900,
-    darkSoft
+    darkSoft,
+    fontSize16,
+    fontSize14
 } from '../../theme/index'
 
 export const CardNewsWrapper = styled.article`
@@ -86,6 +88,17 @@ export const CardNewsWrapper = styled.article`
     .tags {
         width:78%;
         /* background:#d3d3d3 ; */
+        button{
+            text-align: left;
+            font-weight: bold;
+            font-size: ${fontSize16};
+            color: ${primary500};  
+            border: none;
+            background: none;
+            &:hover{
+                color: ${primary200};
+            }
+        }
     }
 
     .title{
