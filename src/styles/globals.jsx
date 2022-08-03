@@ -283,6 +283,7 @@ export const BtnGo = styled.div`
     color: ${light};
     position: relative;
     transition: transform 250ms;
+    cursor: pointer;
 
     &:before {
         content: '';

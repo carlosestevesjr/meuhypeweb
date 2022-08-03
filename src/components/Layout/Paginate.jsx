@@ -1,5 +1,5 @@
 import Link from 'next/link'
-import Router, { useRouter } from 'next/router'
+import  Router, { useRouter } from 'next/router'
 import { PaginateWrapper } from '../../styles/globals';
 import { primary500 } from '../../theme';
 
@@ -25,7 +25,7 @@ export default function Paginate({ dados, pageCurrent, search, buscaPage}) {
                     page.push(
                         <li key={i} className="page-item">
                             
-                                <div onClick={() => buscaPage(i+1)} className={active(i,pageCurrent)} >{i + 1}</div>
+                            <div onClick={() => buscaPage(i+1)} className={active(i,pageCurrent)} >{i + 1}</div>
                           
                         </li>
                     );
@@ -115,7 +115,7 @@ export default function Paginate({ dados, pageCurrent, search, buscaPage}) {
                     }
                     {/* <Pagination ></Pagination> */}
                     {
-                        (pageCurrent <= dados.last_page && dados.last_page != 1) && 
+                        (pageCurrent < dados.last_page ) && 
                         <li className="page-item">
                             <button 
                                 onClick={() => (
@@ -137,7 +137,7 @@ export default function Paginate({ dados, pageCurrent, search, buscaPage}) {
                     }
 
                     {
-                    (pageCurrent <= dados.last_page && dados.last_page != 1) && 
+                    (pageCurrent < dados.last_page && dados.last_page > 1) && 
                         <li className="page-item">
                             <button
                                 onClick={() => (
