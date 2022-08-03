@@ -1,7 +1,7 @@
 import { createGlobalStyle } from "styled-components";
 import styled from 'styled-components';
 
-import { bg, light, primary500, primary200, secundary300, fontSize26, fontSize21, fontSize16, fontSize13, fontSize10, fontSize8, primary50, corDestaque, primary100, surface, primary300, secundary50, darkSoft } from '../theme/index'
+import { bg, light, primary500, primary200, secundary300, fontSize26, fontSize21, fontSize16, fontSize13, fontSize10, fontSize8, primary50, corDestaque, primary100, surface, primary300, secundary50, darkSoft, fontSize32 } from '../theme/index'
 
 export const GlobalStyle = createGlobalStyle`
     /* Your css reset here */
@@ -149,6 +149,24 @@ export const GlobalStyle = createGlobalStyle`
 
 
 `;
+
+
+export const TitleChannelWrapper = styled.div`
+    .logo {
+        background-color: ${light};
+        border-radius: 3px;
+    }
+    .name{
+        font-size: ${fontSize32};
+        color: ${corDestaque};
+        font-weight: bold;
+    }
+    .description{
+        font-size: ${fontSize32};
+        color: ${primary500};
+    }
+`;
+
 
 export const HeaderWrapper = styled.header`
     /* padding: 10px; */

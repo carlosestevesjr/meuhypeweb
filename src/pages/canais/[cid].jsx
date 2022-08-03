@@ -9,12 +9,13 @@ import Layout from '../../components/Layout/Layout';
 import CardNews from '../../components/CardNews/CardNews';
 import Header from '../../components/Layout/Header';
 import Footer from '../../components/Layout/Footer';
-import { NewsWrapper, PageTitleWrapper } from '../../styles/globals';
+import { NewsWrapper, PageTitleWrapper, TitleChannelWrapper } from '../../styles/globals';
 import Messages from '../../components/Layout/Messages';
 import Sidebar from '../../components/Layout/Sidebar';
 import Loader from '../../components/Utilities/Loader';
 import { messageDefault } from '../../utils';
 import Paginate from '../../components/Layout/Paginate';
+import TitleChannel from '../../components/Layout/TitleChannel';
 
 export default function Canal() {
 
@@ -92,11 +93,7 @@ export default function Canal() {
             <Header></Header>
             <Layout>
                 <main>
-                <div className='container'>
-                    <PageTitleWrapper>
-                        <h2 className='title-page text-center'>Canal </h2>
-                    </PageTitleWrapper>
-                </div>
+                <TitleChannel cid={cid} />
                 <div className='container'>
                         <div className='row'>
                             <div className='col-sm-12 col-md-9 col-lg-9 col-xl-9 mb-3'>
