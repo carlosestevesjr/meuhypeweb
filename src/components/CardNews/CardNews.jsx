@@ -1,7 +1,7 @@
 import Image from 'next/image'
 import React, { useState } from 'react';
 import ContentLoader, { Facebook } from 'react-content-loader'
-import {formataDataBr} from '../../utils/index'
+import {formataDataBr, retornaTypeNews} from '../../utils/index'
 
 //Config
 import Config from '../../config/index'
@@ -12,8 +12,7 @@ import Loader from '../Utilities/Loader';
 import Link from 'next/link';
 
 export default function CardNews({item}){
-    const [src, setSrc] = useState("");
-
+   
     const handleImageLoad = (e, id_loader) => {
         // console.log("load", e);
         // const element = document.getElementById('load-'+id_loader);
@@ -27,9 +26,10 @@ export default function CardNews({item}){
         <CardNewsWrapper className='mh-shadow position-relative'>
             <div className=' '>
                 <div className='s-image py-2'>
-                    <a target='_blank' rel="noreferrer" href={item.new.news_link} className="">
+                    
                         <div className='corpo-image-new position-relative '>
                             <div id={`load-${item.new.news_id}`}><Loader /></div>
+                            <a target='_blank' rel="noreferrer" href={item.new.news_link} className="">
                             <Image
                                 onLoadingComplete={(e) => {
                                     handleImageLoad(e,item.new.news_id);
@@ -40,9 +40,15 @@ export default function CardNews({item}){
                                 layout="fill"
                                 objectFit="contain"
                             />
-                            
+                            </a>
+                            <div className='position-absolute top-0 start-0 translate-middle mx-2'>
+                                {
+                                    retornaTypeNews(item.new.channel_type)
+                                }
+                            </div>
                         </div>
-                    </a>
+                   
+
                 </div>
                 <h2 className=" title mb-2 lh-sm text-uppercase">{item.new.news_title}</h2>
             </div>

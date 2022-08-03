@@ -15,6 +15,7 @@ import Sidebar from '../../components/Layout/Sidebar';
 import Loader from '../../components/Utilities/Loader';
 import { messageDefault } from '../../utils';
 import Paginate from '../../components/Layout/Paginate';
+import TitleTag from '../../components/Layout/TitleTag';
 
 export default function Tag() {
 
@@ -92,11 +93,7 @@ export default function Tag() {
             <Header></Header>
             <Layout>
                 <main>
-                <div className='container'>
-                    <PageTitleWrapper>
-                        <h2 className='title-page text-center'>Tag </h2>
-                    </PageTitleWrapper>
-                </div>
+                <TitleTag tid={tid} />
                 <div className='container'>
                         <div className='row'>
                             <div className='col-sm-12 col-md-9 col-lg-9 col-xl-9 mb-3'>

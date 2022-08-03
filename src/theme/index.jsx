@@ -42,7 +42,7 @@ export const bg = '#F3F3F3';
 export const surface = '#FFFFFF';
 export const bradius = 3;
 
-export const fontSize32 = '1.2em';
+export const fontSize32 = '2.2em';
 export const fontSize30 = '1.875em';
 export const fontSize26 = '1.625em';
 export const fontSize24 = '1.5em';
