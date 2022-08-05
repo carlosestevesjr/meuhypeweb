@@ -84,7 +84,6 @@ export default function Canal() {
         }else{
             buscaPage(1)
         }
-       
       
     }, [isReady, cid ]); // eslint-disable-line react-hooks/exhaustive-deps
 

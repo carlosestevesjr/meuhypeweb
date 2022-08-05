@@ -48,7 +48,7 @@ export default function Tag() {
                 setIsLoadingNews(false)
                 setMessages(prevState => ({
                     ...prevState,
-                    news: messageDefault
+                    tags: messageDefault
                 }));
                 // throw(error);
             })
@@ -56,8 +56,7 @@ export default function Tag() {
 
 
     const [messages, setMessages] = useState({
-        'news':'',
-        'tagsRecents':''
+        'tags':''      
     })
     
     const [isIsLoadingNews, setIsLoadingNews] = useState(false)
@@ -79,12 +78,12 @@ export default function Tag() {
         if (!isReady) {
             return;
         }
+
         if(pagina){
             buscaPage(pagina)
         }else{
             buscaPage(1)
         }
-       
       
     }, [isReady, tid ]); // eslint-disable-line react-hooks/exhaustive-deps
 
@@ -112,7 +111,7 @@ export default function Tag() {
                                                                 </div>
                                                             ))
                                                             :
-                                                            <Messages message={messages.news} />
+                                                            <Messages message={messages.tags} />
 
                                                     }
                                                 </div>
