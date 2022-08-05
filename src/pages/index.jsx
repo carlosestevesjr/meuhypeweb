@@ -204,10 +204,8 @@ export default function Home() {
                             <div className='d-flex '>
                                 <h2 className='subtitle-page text-start'>Tags <br />Recentes</h2>
                                 {
-                                  
                                     <div id="list-tags">
-                                        <div >
-                                            
+                                        <div>
                                             {
                                                 isIsLoadingTags ? 
                                                     <Loader width="20%" height="50px" margin="1.5em auto 0 auto"></Loader>

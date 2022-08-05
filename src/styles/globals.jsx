@@ -14,7 +14,7 @@ export const GlobalStyle = createGlobalStyle`
         background: linear-gradient(to top,${primary50},${primary50}) no-repeat top;
         background-color:${bg};
         background-size: 100% 440px;
-        font-family: "Roboto" sans-serif;
+        font-family: "Roboto", sans-serif;
         margin: 0;
         text-rendering: optimizeLegibility !important;
         -webkit-font-smoothing: antialiased !important;
@@ -147,7 +147,6 @@ export const GlobalStyle = createGlobalStyle`
         box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.2) 0px -2px 0px inset;
     }
 
-
 `;
 
 
@@ -162,8 +161,9 @@ export const TitleChannelWrapper = styled.div`
         font-weight: bold;
     }
     .description{
-        font-size: ${fontSize32};
+        font-size: ${fontSize26};
         color: ${primary500};
+        line-height: 17px;
     }
 `;
 
@@ -210,19 +210,24 @@ export const HeaderWrapper = styled.header`
     }
 `;
 
+
 export const PageTitleWrapper = styled.div`
    
     .title-page-initial{
         /* margin-bottom:10px ; */
         font-size: ${fontSize26};
         padding:1.25em;
-        color: ${primary500};
+        color: ${corDestaque};
     }  
     .title-page{
         margin-bottom:10px;
         font-size: ${fontSize26};
         padding:1.25em;
         color: ${primary500};
+    }  
+    .title-page-geral{
+        font-size: ${fontSize26};
+        color: ${corDestaque};
     }  
 `;
 
@@ -298,20 +303,26 @@ export const BtnTag = styled.div`
 `;
 
 export const BtnGo = styled.div`
+    width: 35px;
     color: ${light};
-    position: relative;
     transition: transform 250ms;
+    top: 7px;
     cursor: pointer;
+    
+    a{
+        z-index: 99;
+    }
 
     &:before {
         content: '';
         position: absolute;
-        top:5%;
+        top:0;
         left:-10px;
         width:22px;
         height: 22px;
         background: ${primary200};
         border-radius: 50px;
+        z-index: 9;
     }
 
     &:hover {

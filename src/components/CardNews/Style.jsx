@@ -31,7 +31,15 @@ export const CardNewsWrapper = styled.article`
     border-radius: 3px;
     /* border-bottom: 3px solid ${primary500}; */
     /* min-height: 342px ; */
-    
+
+    .load{
+        margin:0 auto ;
+    }
+
+    .box-image{
+        width:100%;
+        height: 137px;
+    }
     .divider{
         color: ${primary200};
     }
@@ -70,23 +78,13 @@ export const CardNewsWrapper = styled.article`
     }
 
     .s-image{
-         background: ${secundary50};
+        background: ${secundary50};
         border: 1px solid #d3d3d3;
         border-bottom: none;
-        
-        .corpo-image-new{
-            width: 100%;
-            height:137px ;
-        }
-        .image{
-            display:block;
-            margin:0 auto ;
-            max-height: 132px;
-        }
     }
 
     .tags {
-        width:78%;
+        width:95%;
         /* background:#d3d3d3 ; */
         button{
             text-align: left;

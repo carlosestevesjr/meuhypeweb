@@ -15,10 +15,10 @@ export default function CardNews({item}){
    
     const handleImageLoad = (e, id_loader) => {
         // console.log("load", e);
-        // const element = document.getElementById('load-'+id_loader);
-        // if(element){
-        //     element.remove(); 
-        // }
+        const element = document.getElementById('load-'+id_loader);
+        if(element){
+            element.remove(); 
+        }
     };
     // const MyLoader = () => <Facebook  />
 
@@ -26,34 +26,32 @@ export default function CardNews({item}){
         <CardNewsWrapper className='mh-shadow position-relative'>
             <div className=' '>
                 <div className='s-image py-2'>
-                    
-                        <div className='corpo-image-new position-relative '>
-                            <div id={`load-${item.new.news_id}`}><Loader /></div>
-                            <a target='_blank' rel="noreferrer" href={item.new.news_link} className="">
-                            <Image
-                                onLoadingComplete={(e) => {
-                                    handleImageLoad(e,item.new.news_id);
-                                }}
-                                className=" "
-                                src={Config().LOCAL_HOST_MEUHYPE+item.new.news_image}
-                                alt={item.new.news_title}
-                                layout="fill"
-                                objectFit="contain"
-                            />
-                            </a>
-                            <div className='position-absolute top-0 start-0 translate-middle mx-2'>
-                                {
-                                    retornaTypeNews(item.new.channel_type)
-                                }
+                    <div className='corpo-image-new position-relative'>
+                        <a target='_blank' rel="noreferrer" href={item.new.news_link} className="">
+                            <div id={`load-${item.new.news_id}`} className="position-absolute"><Loader margin={'0 0 0 75% '} /></div>
+                            <div className='box-image position-relative'>
+                                <Image
+                                    onLoadingComplete={(e) => {
+                                        handleImageLoad(e,item.new.news_id);
+                                    }}
+                                    src={Config().LOCAL_HOST_MEUHYPE+item.new.news_image}
+                                    alt={item.new.news_title}
+                                    objectFit="contain"
+                                    layout='fill'
+                                />
                             </div>
+                        </a>
+                        <div className='position-absolute top-0 start-0 translate-middle mx-2'>
+                            {
+                                retornaTypeNews(item.new.channel_type)
+                            }
                         </div>
-                   
-
+                    </div>
                 </div>
-                <h2 className=" title mb-2 lh-sm text-uppercase">{item.new.news_title}</h2>
+                <h2 className="title mb-2 lh-sm text-uppercase">{item.new.news_title}</h2>
             </div>
            
-            <div >
+            <div className='d-flex justify-content-between'>
                 <div className='tags float-start d-flex flex-wrap'>
                     {
                         item.tags && item.tags.map(function(tag, i){
@@ -68,10 +66,10 @@ export default function CardNews({item}){
                         })
                     }
                 </div>
-                <BtnGo className='float-end mx-4 my-2' title="Ir ao conteúdo" >
+                <BtnGo className='position-relative ' title="Ir ao conteúdo" >
                     <Link href={item.new.news_link} passHref >
-                        <a target="_blank" rel="noopener noreferrer">
-                            <div className='position-absolute  mh-shadow2 ' style={{backgroundColor: "#fff", borderRadius:'50px' }} >
+                        <a className='position-absolute' target="_blank" rel="noopener noreferrer">
+                            <div className=' mh-shadow2 ' style={{backgroundColor: "#fff", borderRadius:'50px' }} >
                                 <svg xmlns="http://www.w3.org/2000/svg" width={25} height={25} fill={corDestaque} className="bi bi-arrow-right-circle" viewBox="0 0 16 16">
                                     <path fillRule="evenodd" d="M8 0a8 8 0 1 1 0 16A8 8 0 0 1 8 0zM4.5 7.5a.5.5 0 0 0 0 1h5.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3a.5.5 0 0 0 0-.708l-3-3a.5.5 0 1 0-.708.708L10.293 7.5H4.5z"/>
                                 </svg>
@@ -93,7 +91,6 @@ export default function CardNews({item}){
                                 layout="fill"
                                 objectFit="contain"
                                 loading={'eager'}
-
                             />
                         </div>
                     </a>
@@ -108,7 +105,7 @@ export default function CardNews({item}){
                         </Link>
                     </h2>
                     <time className='data d-block'>
-                    {formataDataBr(item.new.news_data)}
+                        {formataDataBr(item.new.news_data)}
                     </time>
                 </div>
             </div>

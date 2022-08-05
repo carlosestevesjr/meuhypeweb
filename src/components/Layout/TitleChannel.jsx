@@ -93,10 +93,10 @@ export default function TitleChannel({cid}){
                                                     <>{channel.name}</>
                                                
                                             }
-                                            {
+                                            {/* {
                                                  (messages.channel != "" ) &&
                                                  <Messages message={messages.channel} />
-                                            }
+                                            } */}
                                         </h1>
                                         {
                                             (channel) &&

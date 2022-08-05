@@ -93,10 +93,10 @@ export default function TitleTag({tid}){
                                                     <>#{channel.title}</>
                                                
                                             }
-                                            {
+                                            {/* {
                                                  (messages.channel != "" ) &&
                                                  <Messages message={messages.channel} />
-                                            }
+                                            } */}
                                         </h1>
                                         {
                                             (channel) &&
