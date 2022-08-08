@@ -103,38 +103,32 @@ export default function Canais() {
                         </PageTitleWrapper>
                     </div>
                     <div className='container'>
-                        <div className='row'>
-                            <div className='col-sm-12 col-md-12 col-lg-12 col-xl-12 mb-3'>
-                                <div id="lita-canais">
-                                    <div className='container'>
+                        <div id="lita-canais">
+                            {
+                                (isIsLoadingNews) ?
+                                    <Loader width="20%" height="100px" margin="0 auto"></Loader>
+                                    :
+                                    <div className='row'>
                                         {
-                                            (isIsLoadingNews) ?
-                                                <Loader width="20%" height="100px" margin="0 auto"></Loader>
+                                            ( channels.length > 0) ?
+                                                channels.map((item, index) => (
+                                                    <div key={index} className='col-sm-12 col-md-12 col-lg-6 col-xl-4 mb-3'>
+                                                        {<CardChannels item={item} ></CardChannels>}
+                                                    </div>
+                                                ))
                                                 :
-                                                <div className='row'>
-                                                    {
-                                                        ( channels.length > 0) ?
-                                                            channels.map((item, index) => (
-                                                                <div key={index} className='col-sm-12 col-md-12 col-lg-6 col-xl-4 mb-3'>
-                                                                    {<CardChannels item={item} ></CardChannels>}
-                                                                </div>
-                                                            ))
-                                                            :
-                                                            <Messages message={messages.channels} />
+                                                <Messages message={messages.channels} />
 
-                                                    }
-                                                </div>
                                         }
                                     </div>
-                                </div>
-                                <div className='clear-fix'></div>
-                                {
-                                    (( channels.length > 0)) &&
-                                    <Paginate dados={dadosPaginate} buscaPage={buscaPage } search={s} pageCurrent={parseInt(page)}></Paginate>
-                                }
-                            </div>
-                           
+                            }
                         </div>
+                        
+                        <div className='clear-fix'></div>
+                        {
+                            (( channels.length > 0)) &&
+                            <Paginate dados={dadosPaginate} buscaPage={buscaPage } search={s} pageCurrent={parseInt(page)}></Paginate>
+                        }
                     </div>
                 </main>
                 <Footer></Footer>
