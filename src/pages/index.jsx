@@ -6,7 +6,7 @@ import Config from '../config/index';
 import Layout from '../components/Layout/Layout';
 import Header from '../components/Layout/Header';
 import CardNews from '../components/CardNews/CardNews';
-import CardTag from '../components/CardTag/CardTag';
+import CardTagRecent from '../components/CardTagRecent/CardTagRecent';
 import Paginate from '../components/Layout/Paginate';
 import Loader from '../components/Utilities/Loader';
 import Footer from '../components/Layout/Footer';
@@ -217,7 +217,7 @@ export default function Home() {
                                                             (tagsRecents.length > 0) ?
                                                                 tagsRecents.map((item, index) => (
                                                                     <div key={index}>
-                                                                        {<CardTag item={item} ></CardTag>}
+                                                                        {<CardTagRecent item={item} ></CardTagRecent>}
                                                                     </div>
                                                                 ))
                                                                 :

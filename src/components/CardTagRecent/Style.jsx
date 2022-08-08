@@ -6,7 +6,7 @@ import {
     
 } from '../../theme/index'
 
-export const CardTagWrapper = styled.article`
+export const CardTagRecentWrapper = styled.article`
     min-width: 97px;
     min-height: 129px;
     background:${light};
