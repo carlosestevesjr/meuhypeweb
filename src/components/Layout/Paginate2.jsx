@@ -3,7 +3,7 @@ import  Router, { useRouter } from 'next/router'
 import { PaginateWrapper } from '../../styles/globals';
 import { primary500 } from '../../theme';
 
-export default function Paginate({ dados, pageCurrent, search, buscaPage}) {
+export default function Paginate2({ dados, pageCurrent}) {
     const router = useRouter(); 
 
     function active(id , pageActive){
@@ -14,57 +14,7 @@ export default function Paginate({ dados, pageCurrent, search, buscaPage}) {
         }
     }
 
-    const Pagination = () => {
-
-        let page = [];
-
-        for (var i = 0; i < dados.last_page; i++) {
-
-            if (dados.last_page > 10) {
-                if(i < 5) {
-                    page.push(
-                        <li key={i} className="page-item">
-                            
-                            <div onClick={() => buscaPage(i+1)} className={active(i,pageCurrent)} >{i + 1}</div>
-                          
-                        </li>
-                    );
-                }
-
-                if((dados.last_page - 5) > i) {
-
-                }else {
-                    page.push(
-                    <li  key={i} className="page-item">
-                       
-                        <div onClick={() => buscaPage(i+1)} className={active(i,pageCurrent)} >{i + 1}</div>
-                       
-                    </li>
-                    );
-                }
-
-                if(i > 5 && i < 7) {
-                    page.push(
-                            <li  key={i}  className="page-item">
-                                <span className={active(i,pageCurrent)} >...</span>
-                            </li>
-                        );
-                }
-            }else{
-                page.push(
-                    <li  key={i} className="page-item">
-                       
-                        <div onClick={() => buscaPage(i+1)} className={active(i,pageCurrent)} >{i + 1}</div>
-                        
-                    </li>
-                );
-            }
-            
-        }
-
-        return page
-    }
-
+   
     return (
         <PaginateWrapper className='my-2'>
             <nav>
@@ -74,10 +24,9 @@ export default function Paginate({ dados, pageCurrent, search, buscaPage}) {
                         <li className="page-item">
                             <button 
                             onClick={() => (
-                                    buscaPage(1),
                                     Router.push({
                                         pathname: router.pathname,
-                                        query: {...router.query, pagina: 1, s: search },
+                                        query: {...router.query, pid: 1},
                                     })
                                 )} 
                             >
@@ -98,10 +47,9 @@ export default function Paginate({ dados, pageCurrent, search, buscaPage}) {
                         <li className="page-item">
                             <button 
                                 onClick={() => (
-                                    buscaPage(pageCurrent - 1),
                                     Router.push({
                                         pathname: router.pathname,
-                                        query: {...router.query, pagina: pageCurrent - 1, s: search },
+                                        query: {...router.query,  pid: pageCurrent - 1 },
                                     })
                                 )} 
                             >
@@ -120,10 +68,9 @@ export default function Paginate({ dados, pageCurrent, search, buscaPage}) {
                         <li className="page-item">
                             <button 
                                 onClick={() => (
-                                    buscaPage(pageCurrent + 1),
                                     Router.push({
                                         pathname: router.pathname,
-                                        query: {...router.query, pagina: pageCurrent + 1, s: search },
+                                        query: {...router.query,  pid: pageCurrent + 1},
                                     })
                                 )}
                             >
@@ -142,10 +89,9 @@ export default function Paginate({ dados, pageCurrent, search, buscaPage}) {
                         <li className="page-item">
                             <button
                                 onClick={() => (
-                                    buscaPage(dados.last_page),
                                     Router.push({
                                         pathname: router.pathname,
-                                        query: {...router.query, pagina: dados.last_page, s: search },
+                                        query: {...router.query, pid: dados.last_page },
                                     })
                                     
                                 )}

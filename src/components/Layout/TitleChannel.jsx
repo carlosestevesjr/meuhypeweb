@@ -22,7 +22,12 @@ export default function TitleChannel({cid}){
 
     const [isIsLoadingNews, setIsLoadingNews] = useState(false)
 
-    async function buscaChannel(page = 1) {
+    const buscaPage = () => {
+        // console.log('buscaPage',page)
+        buscaChannel()
+    }
+
+    async function buscaChannel() {
         // console.log('chama', page)
         setIsLoadingNews(true)
         setChannel([])
@@ -53,12 +58,12 @@ export default function TitleChannel({cid}){
             return;
         }
 
-        buscaChannel()
+        buscaPage()// eslint-disable-line react-hooks/exhaustive-deps
       
     }, [isReady, cid ]); // eslint-disable-line react-hooks/exhaustive-deps
 
     useEffect(() => {
-        buscaChannel()
+        buscaPage()// eslint-disable-line react-hooks/exhaustive-deps
     }, []);
    
     return (
