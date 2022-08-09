@@ -175,6 +175,31 @@ export const TitleChannelWrapper = styled.div`
 `;
 
 
+export const TitleTagWrapper = styled.div`
+    .box-logo{
+        width:136px;
+        background-color: ${light};
+        border-radius: 3px;
+        position: relative;
+        min-height:200px;
+    }
+
+    .box-conteudo{
+        width:75%;
+        .name{
+            font-size: ${fontSize32};
+            color: ${corDestaque};
+            font-weight: bold;
+        }
+        .description{
+            font-size: ${fontSize26};
+            color: ${primary500};
+            line-height: 17px;
+        }
+    }
+`;
+
+
 export const HeaderWrapper = styled.header`
     /* padding: 10px; */
     z-index: 999999999 ;

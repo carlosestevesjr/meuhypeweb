@@ -6,7 +6,7 @@ import Router, { useRouter } from 'next/router'
 
 //Config
 import Config from '../../config/index'
-import {BtnTag, BtnGo, TitleChannelWrapper } from './../../styles/globals'
+import {BtnTag, BtnGo, TitleChannelWrapper, TitleTagWrapper } from './../../styles/globals'
 import { corDestaque, fontSize12} from '../../theme';
 import Loader from '../Utilities/Loader';
 import Link from 'next/link';
@@ -14,29 +14,29 @@ import Messages from './Messages';
 
 export default function TitleTag({tid}){
 
-    const [channel, setChannel] = useState(null)
+    const [tag, setTag] = useState(null)
 
     const [messages, setMessages] = useState({
-        'channel':''
+        'tag':''
     })
 
     const [isIsLoadingNews, setIsLoadingNews] = useState(false)
 
-    async function buscaChannel(page = 1) {
+    async function buscaTag(page = 1) {
         // console.log('chama', page)
         setIsLoadingNews(true)
-        setChannel([])
+        setTag([])
        
         await fetch(Config().LOCAL_API_MEUHYPE + 'v1/tag-single/'+tid)
             .then((res) => res.json())
             .then((data) => {
-                setChannel(data.content.dados[0])
+                setTag(data.content.dados[0])
                 setIsLoadingNews(false)
             }).catch(error => {
                 setIsLoadingNews(false)
                 setMessages(prevState => ({
                     ...prevState,
-                    channel: 'Não foi possivel carregar o título'
+                    tag: 'Não foi possivel carregar o título'
                 }));
                 // throw(error);
             })
@@ -53,16 +53,16 @@ export default function TitleTag({tid}){
             return;
         }
 
-        buscaChannel()
+        buscaTag()
       
     }, [isReady, tid ]); // eslint-disable-line react-hooks/exhaustive-deps
 
     useEffect(() => {
-        buscaChannel()
+        buscaTag()
     }, []);
    
     return (
-        <TitleChannelWrapper className='position-relative'>
+        <TitleTagWrapper className='position-relative'>
             <div className='container'>
                 <div className='row'>
                     <div className='col-md-12'>
@@ -72,25 +72,29 @@ export default function TitleTag({tid}){
                                 :
                                 <div className='p-3 mb-5 d-flex justify-content-start'>
                                     
-                                    <div className='logo px-2  mh-shadow'>
-                                    {
-                                            (channel) &&
-                                            <Image
-                                                src={Config().LOCAL_HOST_MEUHYPE+channel.image}
-                                                alt={channel.neme}
-                                                width={'155'}
-                                                height={'244'}
-                                                objectFit="contain"
-                                                
-                                            />
-                                    }
+                                    <div className='box-logo mh-shadow'>
+                                        <div className='logo '>
+
+                                            {
+                                                    (tag) &&
+                                                    <Image
+                                                    
+                                                        src={Config().LOCAL_HOST_MEUHYPE+tag.image}
+                                                        alt={tag.title}
+                                                        objectFit="contain"
+                                                        layout='fill'
+                                                    
+                                                        
+                                                    />
+                                            }
+                                        </div>
                                     </div>
                                 
-                                    <div className='mx-5'>
+                                    <div className='box-conteudo mx-5'>
                                         <h1 className='name mt-5 mb-3'>
                                             {
-                                                (channel ) &&
-                                                    <>#{channel.title}</>
+                                                (tag ) &&
+                                                    <>#{tag.title}</>
                                                
                                             }
                                             {/* {
@@ -99,8 +103,8 @@ export default function TitleTag({tid}){
                                             } */}
                                         </h1>
                                         {
-                                            (channel) &&
-                                                <div dangerouslySetInnerHTML={{__html: channel.description}} />
+                                            (tag) &&
+                                                <div dangerouslySetInnerHTML={{__html: tag.description}} />
                                         }
                                     
                                     </div>
@@ -110,7 +114,7 @@ export default function TitleTag({tid}){
                     </div>
                 </div>
             </div>
-        </TitleChannelWrapper>
+        </TitleTagWrapper>
        
     )
 }
