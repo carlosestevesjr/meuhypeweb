@@ -151,19 +151,26 @@ export const GlobalStyle = createGlobalStyle`
 
 
 export const TitleChannelWrapper = styled.div`
-    .logo {
+    .box-logo{
+        width:25%;
         background-color: ${light};
         border-radius: 3px;
+        position: relative;
+        max-height: 132px;
     }
-    .name{
-        font-size: ${fontSize32};
-        color: ${corDestaque};
-        font-weight: bold;
-    }
-    .description{
-        font-size: ${fontSize26};
-        color: ${primary500};
-        line-height: 17px;
+
+    .box-conteudo{
+        width:75%;
+        .name{
+            font-size: ${fontSize32};
+            color: ${corDestaque};
+            font-weight: bold;
+        }
+        .description{
+            font-size: ${fontSize26};
+            color: ${primary500};
+            line-height: 17px;
+        }
     }
 `;
 

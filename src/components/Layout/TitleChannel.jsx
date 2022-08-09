@@ -76,27 +76,26 @@ export default function TitleChannel({cid}){
                                 <Loader width="10%" height="100px" margin="0 auto"></Loader>
                                 :
                                 <div className='p-3 mb-5 d-flex justify-content-start'>
-                                    
-                                    <div className='logo mx-3 p-2  mh-shadow'>
-                                    {
-                                            (channel) &&
-                                            <Image
-                                                src={Config().LOCAL_HOST_MEUHYPE+channel.image}
-                                                alt={channel.neme}
-                                                width={'220'}
-                                                height={'132'}
-                                                objectFit="contain"
-                                                
-                                            />
-                                    }
+                                    <div className='box-logo mx-3 p-2 mh-shadow'>
+                                        <div className='logo '>
+                                        {
+                                                (channel) &&
+                                                <Image
+                                                    src={Config().LOCAL_HOST_MEUHYPE+channel.image}
+                                                    alt={channel.neme}
+                                                    objectFit="contain"
+                                                    layout='fill'
+                                                    
+                                                />
+                                        }
+                                        </div>
                                     </div>
                                 
-                                    <div className='mx-5'>
+                                    <div className='box-conteudo mx-5'>
                                         <h1 className='name my-3'>
                                             {
                                                 (channel ) &&
                                                     <>{channel.name}</>
-                                               
                                             }
                                             {/* {
                                                  (messages.channel != "" ) &&
