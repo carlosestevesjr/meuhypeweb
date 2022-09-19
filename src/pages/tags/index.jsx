@@ -104,33 +104,33 @@ export default function Tags() {
                         </PageTitleWrapper>
                     </div>
                   
-                                <div id="lita-canais">
-                                    <div className='container'>
+                    <div id="lita-canais">
+                        <div className='container'>
+                            {
+                                (isIsLoadingNews) ?
+                                    <Loader width="20%" height="100px" margin="0 auto"></Loader>
+                                    :
+                                    <div className='row'>
                                         {
-                                            (isIsLoadingNews) ?
-                                                <Loader width="20%" height="100px" margin="0 auto"></Loader>
+                                            ( tags.length > 0) ?
+                                                tags.map((item, index) => (
+                                                    <div key={index} className='col-sm-12 col-md-12 col-lg-6 col-xl-4 mb-3'>
+                                                        {<CardTag item={item} ></CardTag>}
+                                                    </div>
+                                                ))
                                                 :
-                                                <div className='row'>
-                                                    {
-                                                        ( tags.length > 0) ?
-                                                            tags.map((item, index) => (
-                                                                <div key={index} className='col-sm-12 col-md-12 col-lg-6 col-xl-4 mb-3'>
-                                                                    {<CardTag item={item} ></CardTag>}
-                                                                </div>
-                                                            ))
-                                                            :
-                                                            <Messages message={messages.tags} />
+                                                <Messages message={messages.tags} />
 
-                                                    }
-                                                </div>
                                         }
                                     </div>
-                                </div>
-                                <div className='clear-fix'></div>
-                                {
-                                    (( tags.length > 0)) &&
-                                    <Paginate dados={dadosPaginate} buscaPage={buscaPage } search={s} pageCurrent={parseInt(page)}></Paginate>
-                                }
+                            }
+                        </div>
+                    </div>
+                    <div className='clear-fix'></div>
+                    {
+                        (( tags.length > 0)) &&
+                        <Paginate dados={dadosPaginate} buscaPage={buscaPage } search={s} pageCurrent={parseInt(page)}></Paginate>
+                    }
                           
                 </main>
                 <Footer></Footer>

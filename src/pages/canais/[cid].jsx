@@ -95,7 +95,7 @@ export default function Canal() {
                 <TitleChannel cid={cid} />
                 <div className='container'>
                         <div className='row'>
-                            <div className='col-sm-12 col-md-9 col-lg-9 col-xl-9 mb-3'>
+                            <div className='col-sm-12 col-md-12 col-lg-12 col-xl-12 mb-3'>
                                 <NewsWrapper id="lita-news">
                                     <div className='container'>
                                         {
@@ -106,7 +106,7 @@ export default function Canal() {
                                                     {
                                                         ( news.length > 0) ?
                                                             news.map((item, index) => (
-                                                                <div key={index} className='col-sm-12 col-md-12 col-lg-6 col-xl-4 mb-3'>
+                                                                <div key={index} className='col-sm-12 col-md-12 col-lg-4 col-xl-3 mb-3'>
                                                                     {<CardNews item={item} ></CardNews>}
                                                                 </div>
                                                             ))
@@ -126,11 +126,11 @@ export default function Canal() {
                                     <Paginate dados={dadosPaginate} buscaPage={buscaPage } search={null} pageCurrent={parseInt(page)}></Paginate>
                                 }
                             </div>
-                            <div className='col-sm-12 col-md-3 col-lg-3 col-xl-3 mb-3'>
+                            {/* <div className='col-sm-12 col-md-3 col-lg-3 col-xl-3 mb-3'>
                                 <Sidebar>
 
                                 </Sidebar>
-                            </div>
+                            </div> */}
                         </div>
                     </div>
                    

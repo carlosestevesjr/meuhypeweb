@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { useRouter } from 'next/router'
+import Router, { useRouter } from 'next/router'
 
 //Config
 import Config from '../config/index';
@@ -14,16 +14,40 @@ import Layout from '../components/Layout/Layout';
 import Paginate2 from '../components/Layout/Paginate2';
 import Sidebar from '../components/Layout/Sidebar';
 import Footer from '../components/Layout/Footer';
+import Loader from '../components/Utilities/Loader';
 
 
 export default function MountNews({responseNews, responsePaginate, page, messages}) {
-    console.log('pagina', page)
+   
+    const [news, setNews] = useState([])
+    const [isLoadingNews, setIsLoadingNews] = useState(false)
+
+    useEffect( () => {
+        const tempPosts =  responseNews ;
+        setNews(tempPosts);
+        
+    }, []);
     
+    Router.events.on("routeChangeStart", () => {
+        setIsLoadingNews(true)
+        console.log("Route is start ...")
+    })
+
+    Router.events.on("routeChangeComplete", () => {
+        setIsLoadingNews(false)
+        console.log("Route is changing is complete ...")
+    })
+
+  
+  
     //Ciclo de vida
     // In your components (instead of useRouter)
-    const router = useRouter();
-    return (
+  
+     return(
         <>
+            { ( isLoadingNews) &&
+                 <div >Loading</div>
+            }
             <Header></Header>
             <Layout>
                 <main>
@@ -35,15 +59,15 @@ export default function MountNews({responseNews, responsePaginate, page, message
                    
                     <div className='container'>
                         <div className='row'>
-                            <div className='col-sm-12 col-md-9 col-lg-9 col-xl-9 mb-3'>
+                            <div className='col-sm-12 col-md-12 col-lg-12 col-xl-12 mb-3'>
                                 <NewsWrapper id="lita-news">
                                     <div className='container'>
 
                                         <div className='row'>
                                             {
-                                                ( responseNews.length > 0) ?
-                                                responseNews.map((item, index) => (
-                                                        <div key={index} className='col-sm-12 col-md-12 col-lg-6 col-xl-4 mb-3'>
+                                                ( news.length > 0) ?
+                                                news.map((item, index) => (
+                                                        <div key={index} className='col-sm-12 col-md-12 col-lg-6 col-xl-3 mb-3'>
                                                             {<CardNews item={item} ></CardNews>}
                                                         </div>
                                                     ))
@@ -58,16 +82,12 @@ export default function MountNews({responseNews, responsePaginate, page, message
                                 <div className='clear-fix'></div>
                                 {
                                             
-                                    (( responseNews.length > 0)) &&
+                                    (( news.length > 0)) &&
                                     <Paginate2 dados={responsePaginate} pageCurrent={parseInt(page)}></Paginate2>
                                         
                                 }
                             </div>
-                            <div className='col-sm-12 col-md-3 col-lg-3 col-xl-3 mb-3'>
-                                <Sidebar>
-
-                                </Sidebar>
-                            </div>
+                          
                         </div>
                     </div>
                    
@@ -100,6 +120,11 @@ export async function getServerSideProps({ query: { pid = 1} }){
         rMessageNews = messageDefault
         // throw(error);
     })
+
+    await new Promise((resolve) => {
+        setTimeout(resolve, 8000);
+    })
+
     // Pass data to the page via props
     return { 
         props: {
